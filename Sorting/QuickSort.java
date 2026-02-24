@@ -1,6 +1,6 @@
 import java.util.Scanner;
 class QuickSort{
-    static void quickksort(int[] arr , int low , int high)
+    public static void quickksort(int[] arr , int low , int high)
     {
         if(low < high)
         {

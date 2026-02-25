@@ -32,6 +32,7 @@ class Sort012
     }
 
     static void sort012Optimal(int[] arr) //Time Complexity O(N) Space O(1)
+    //Dutch National Flag Algorithm
     {
         int low = 0;
         int mid = 0;

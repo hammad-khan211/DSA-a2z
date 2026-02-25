@@ -30,8 +30,41 @@ class MaximumSubarraySum
             {
                 sum = 0;
             }
+
         }
         return maxSum;
+    }
+
+    static void printSubarraywithMaxSum(int[] arr) //Time O(n) Space O(1)
+    {
+        int n = arr.length;
+        int start = -1;
+        int ansStart = -1;
+        int ansEnd = -1;
+        int maxSum = Integer.MIN_VALUE;
+        int sum = 0;
+        for(int i = 0 ; i < n ; i++)
+        {
+            if(sum == 0)
+            {
+                start = i;
+            }
+            sum += arr[i];
+            if(sum > maxSum)
+            {
+                maxSum = sum;
+                ansStart = start;
+                ansEnd = i;
+            }
+            if(sum < 0)
+            {
+                sum = 0;
+            }
+        }   
+        for(int i = ansStart ; i <= ansEnd ; i++)
+        {
+            System.out.print(arr[i] + " ");
+        }
     }
 
     public static void main(String args[])
@@ -49,6 +82,8 @@ class MaximumSubarraySum
         int optimal = maxSubarraySumOptimal(nums);
         System.out.println("Maximumm Subarray Sum using Brute : " + brute);
         System.out.println("Maximumm Subarray Sum using Optimal : " + optimal);
+        System.out.println("Subarray with maximum sum : ");
+        printSubarraywithMaxSum(nums);
         sc.close();
     }
 }

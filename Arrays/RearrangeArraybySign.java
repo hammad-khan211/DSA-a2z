@@ -60,6 +60,54 @@ class RearrangeArraybySign
         return ans;
     }
 
+    static int[] rearrangeArrayCase2(int[] nums) //Special case when number of positives != number of negatives                                                                         
+    {                                                 //  //Time O(2n) Space O(n)
+        int n = nums.length;
+        int countPos = 0;
+        int countNeg = 0;
+        for(int i = 0 ; i < n ; i++)
+        {
+            if(nums[i] > 0) countPos++;
+            else countNeg++;
+        }
+        int[] pos = new int[countPos];
+        int p = 0 , q = 0;
+        int[] neg = new int[countNeg];
+        for(int i = 0 ; i < n ; i++)
+        {
+            if(nums[i] > 0)
+            {
+                pos[p++] = nums[i];
+            }
+            else
+            {
+                neg[q++] = nums[i];
+            }
+        }
+        int i = 0;
+        p = 0;
+        q = 0;
+        int[] result = new int[n];
+        while(p < countPos && q < countNeg)
+        {
+            result[i] = pos[p];
+            i++;
+            p++;
+            result[i] = neg[q];
+            i++;
+            q++;
+        }
+        while(p < countPos)
+        {
+            result[i++] = pos[p++];
+        }
+        while(q < countNeg)
+        {
+            result[i++] = neg[q++];
+        }
+        return result;
+    }
+
     public static void main(String args[])
     {
         Scanner sc = new Scanner(System.in);
@@ -67,7 +115,17 @@ class RearrangeArraybySign
         int size = sc.nextInt();
         if(size % 2 != 0) 
         {
-            System.out.print("Invalid array size");
+            int[] nums = new int[size];
+            System.out.println("Enter positive and negative elements : ");
+            for(int i = 0 ; i < size ; i++)
+            {
+                nums[i] = sc.nextInt();
+            }
+            int result1[] = rearrangeArrayCase2(nums);
+            for(int x : result1)
+            {
+                System.out.print(x + " ");
+            }
         }
         else
         {

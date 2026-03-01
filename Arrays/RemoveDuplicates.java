@@ -31,6 +31,7 @@ class RemoveDuplicates{
                 i++;
             }
         }
+        
         return i+1;
     }
 

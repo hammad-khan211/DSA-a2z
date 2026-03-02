@@ -35,7 +35,6 @@ class MoveZerosToEnd
         }
         for(int i = j ; i < N ; i++)
         {
-
             arr[i] = 0;
         }
         return arr;

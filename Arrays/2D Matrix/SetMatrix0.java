@@ -112,7 +112,6 @@ class SetMatrix0
                         matrix[i][j] = 0;
                     }
                 }
-
             }
         }
         if(matrix[0][0] == 0)
@@ -131,7 +130,6 @@ class SetMatrix0
         }
         
     }
-
     public static void main(String args[])
     {
         Scanner sc = new Scanner(System.in);

@@ -36,7 +36,6 @@
                     for(int i = right ; i >= left ; i--)
                     {
                         nums.add(matrix[bottom][i]);
-                    
                     }
                     bottom--;
                 }

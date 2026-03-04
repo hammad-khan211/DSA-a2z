@@ -1,5 +1,5 @@
 import java.util.*;
-class LeadersofArray //Leader are those elements of array whose all elements on the right hand sode are smaller 
+class LeadersofArray //Leader are those elements of array whose all elements on the right hand side are smaller 
 {
     static void printLeadersBrute(int[] nums) //Time O(n^2) Space O(1)
     {

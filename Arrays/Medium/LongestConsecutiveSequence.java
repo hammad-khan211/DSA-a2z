@@ -58,7 +58,7 @@ class LongestConsecutiveSequence
     static int findOptimal(int[] nums)//Time O(n) Space O(n)
     {
         int n = nums.length;
-        int longest = 1;//minimum lenght of sequence will be atleast 1
+        int longest = 1;//minimum length of sequence will be atleast 1
         if(n == 0) return 0;
         HashSet < Integer > num = new HashSet<>();//set will remove duplicates 
         for(int i = 0 ; i < n ; i++)

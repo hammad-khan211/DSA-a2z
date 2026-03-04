@@ -17,7 +17,7 @@ class PascalTriangle
         }
         return resultant; 
     }
-
+    
     //Type - 2 Question => Print any particular entire row of pascal's triangle
     static List < Long > printRow(int rowNumber) //time complexity O(rowNumber) 
     {
@@ -57,13 +57,13 @@ class PascalTriangle
     public static void main(String args[])
     {
         Scanner sc = new Scanner(System.in);
-        //TYPE 1
+        // // TYPE 1
         // System.out.print("Enter the row and column of the element you need to find in Pascal's Triangle : ");
         // int row = sc.nextInt();
         // int column = sc.nextInt();
         // if(column <= row && column > 0)
         // {
-        //     long ans = findElement(row, column);
+        //     long ans = findpascalElement(row, column);
         //     System.out.println("Element at ( " + row + " , " + column + " ) is : " + ans);
         // }
         // else{

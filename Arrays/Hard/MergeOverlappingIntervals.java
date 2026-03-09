@@ -25,6 +25,29 @@ class MergeOverlappingIntervals
         return result;
     }
 
+    static List < List < Integer > > mergeOptimal(int[][] nums)
+    {
+        List < List < Integer > > result = new ArrayList<>();
+        Arrays.sort(nums , (a , b) -> {
+            if(a[0] != b[0]) return a[0] - b[0];
+            return a[1] - b[1];
+        });
+        for(int[] num : nums)
+        {
+            if(result.isEmpty() || result.get(result.size() - 1).get(1) < num[0])
+            {
+                result.add(Arrays.asList(num[0] , num[1]));
+            }
+            else
+            {
+                int last = result.size() - 1;
+                int maxEnd = Math.max(result.get(last).get(1) , num[1]);
+                result.get(last).set(1 , maxEnd);
+            }
+        }
+        return result;
+    }
+
 
     public static void main(String args[])
     {
@@ -41,7 +64,7 @@ class MergeOverlappingIntervals
             }
         }
         System.out.println("Merged Intervals are : ");
-        List < List < Integer > > ans = mergeBrute(arr);
+        List < List < Integer > > ans = mergeOptimal(arr);
         for(List < Integer > X : ans)
         {
             for(int Y : X)

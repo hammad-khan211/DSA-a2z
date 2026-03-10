@@ -79,6 +79,55 @@ class MissingAndRepeatingNumber
         return new int[]{y , x};
     }
 
+    static int[] optimalApproach2(int[] nums) // TIme Complexity O(n) Space O(1)
+    {
+        int n = nums.length;
+        int xr = 0;
+        for(int i = 0 ; i < n ; i++)
+        {
+            xr ^= nums[i];
+            xr ^= (i + 1);
+        }
+
+        int number = xr & ~(xr - 1);
+        int zero = 0;
+        int one = 0;
+        for(int i = 0 ; i < n ; i++)
+        {
+            if((nums[i] & number) != 0)
+            {
+                one ^= nums[i];
+            }
+            else{
+                zero ^= nums[i];
+            }
+        }
+        for(int i = 1 ; i <= n ; i++)
+        {
+            if((i & number) != 0)
+            {
+                one ^= i;
+            }
+            else{
+                zero ^= i;
+            }
+        }
+        int count = 0;
+        for(int i = 0 ; i < n ; i++)
+        {
+            if(nums[i] == zero)
+            {
+                count++;
+            }
+        }
+        if(count == 2) 
+        {
+            return new int[]{one , zero};
+        }
+        return new int[]{zero , one};
+
+    }
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter the size of the array : ");
@@ -89,7 +138,7 @@ class MissingAndRepeatingNumber
         {
             arr[i] = sc.nextInt();
         }
-        int[] result = OptimalApproach1(arr);
+        int[] result = optimalApproach2(arr);
         System.out.println("Missing Number : " +  result[0]);
         System.out.println("Repeating Number : " +  result[1]);
     }

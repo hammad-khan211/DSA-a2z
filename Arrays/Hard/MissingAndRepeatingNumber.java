@@ -128,6 +128,32 @@ class MissingAndRepeatingNumber
 
     }
 
+    static int[] optimalApproach3(int[] nums) // TIme Complexity O(n) Space O(1)
+    {
+        int n = nums.length;
+        int missing = -1;
+        int repeating = -1;
+        for(int i = 0 ; i < n ; i++)
+        {
+            int index = Math.abs(nums[i]) - 1;
+            if(nums[index] < 0)
+            {
+                repeating = Math.abs(nums[i]);
+            }
+            else{
+                nums[index] = -nums[index];
+            }
+        }
+        for(int i = 0 ; i < n ; i++)
+        {
+            if(nums[i] >= 0)
+            {
+                missing = i + 1;
+            }
+        }
+        return new int[]{missing , repeating};
+    }
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter the size of the array : ");
@@ -138,7 +164,7 @@ class MissingAndRepeatingNumber
         {
             arr[i] = sc.nextInt();
         }
-        int[] result = optimalApproach2(arr);
+        int[] result = optimalApproach3(arr);
         System.out.println("Missing Number : " +  result[0]);
         System.out.println("Repeating Number : " +  result[1]);
     }

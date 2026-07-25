@@ -66,5 +66,4 @@ class LongestSubarrayWithSumK
         System.out.println("The Longest subarray with sum " + k + " is of length : " + result);
         sc.close();
     }
-
 }

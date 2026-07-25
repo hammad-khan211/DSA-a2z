@@ -56,4 +56,5 @@ class MoveZerosToEnd
             System.out.print(x + " ");
         }        
     }
+
 }

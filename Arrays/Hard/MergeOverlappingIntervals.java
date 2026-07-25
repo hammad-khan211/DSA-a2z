@@ -64,7 +64,7 @@ class MergeOverlappingIntervals
             }
         }
         System.out.println("Merged Intervals are : ");
-        List < List < Integer > > ans = mergeOptimal(arr);
+        List < List < Integer > > ans = optimal(arr);
         for(List < Integer > X : ans)
         {
             for(int Y : X)
@@ -73,6 +73,57 @@ class MergeOverlappingIntervals
             }
             System.err.println("");
         }
+    }
+
+
+    static List < List < Integer > > brute(int[][] nums)
+    {
+        List < List < Integer > > result = new ArrayList<>();
+
+        Arrays.sort(nums , (a , b) -> {
+            if(a[0] != b[0]) return a[0] - b[0];
+            return a[1] - b[1];
+        });
+
+        for(int i = 0 ; i < nums.length ; i++)
+        {
+            int start = nums[i][0];
+            int end = nums[i][1];
+            int j = i + 1;
+            while(j < nums.length && end > nums[j][0])
+            {
+                end = Math.max(end , nums[j][1]);
+                j++;
+            }
+            result.add(Arrays.asList(start , end));
+            i = j - 1;
+        }
+        return result;
+    }
+
+    static List < List < Integer > > optimal(int[][] nums)
+    {
+        List < List < Integer > > result = new ArrayList<>();
+
+        Arrays.sort(nums , ( a , b ) -> {
+            if(a[0] != b[0]) return a[0] - b[0];
+            return a[1] - b[1];
+        });
+
+        for(int[] num : nums)
+        {
+            if(result.isEmpty() || result.get(result.size() - 1).get(1) < num[0])
+            {
+                result.add(Arrays.asList(num[0] , num[1]));
+            }
+            else
+            {
+                int last = result.size() - 1;
+                int bigEnd = Math.max(result.get(last).get(1) , num[1]);
+                result.get(last).set(1 , bigEnd);
+            }
+        }
+        return result;
     }
 
 }

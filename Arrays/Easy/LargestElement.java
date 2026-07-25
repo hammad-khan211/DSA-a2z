@@ -1,17 +1,18 @@
 import java.util.Scanner;
 class LargestElement{
-    static int largest(int[] arr)
-    {
-        int l = arr[0];
-        for(int i = 0 ; i < arr.length ; i++)
-        {
-            if(l < arr[i])
-            {
-                l = arr[i];
-            }
-        }                     // Time Complexity -> O(N)
-        return l;
-    }
+    // static int largest(int[] arr)
+    // {
+    //     int l = arr[0];
+    //     for(int i = 0 ; i < arr.length ; i++)
+    //     {
+    //         if(l < arr[i])
+    //         {
+    //             l = arr[i];
+    //         }
+    //     }                     // Time Complexity -> O(N)
+    //     return l;
+    // }
+
 
     public static void main(String args[])
     {

@@ -23,7 +23,7 @@ class CountSubArraysWithXORk
     static int countOptimal(int[] nums , int target) //Time COmplexity O(n) Space O(n)
     {
         int n = nums.length;
-        HashMap < Integer , Integer > prefixXor  = new HashMap<>();
+        HashMap < Integer , Integer > prefixXor = new HashMap<>();
         prefixXor.put(0 , 1);
         int count = 0;
         int xr = 0;
@@ -57,8 +57,50 @@ class CountSubArraysWithXORk
         }
         System.out.println("Enter the value of K : ");
         int k = sc.nextInt();
-        int result = countOptimal(nums, k);
+        int result = optimal(nums, k);
         System.out.println("The  number of subarrays with xor " + k + " are : " + result);
         sc.close();
     }
+
+    static int brute(int[] nums , int target) //tc O(n^2) space O(1)
+    {
+        int count = 0;
+        int n = nums.length;
+        for(int i = 0 ; i < n ; i++)
+        {
+            int xr = 0;
+            for(int j = i ; j < n ; j++)
+            {
+                xr ^= nums[j];
+                if(xr == target)
+                {
+                    count++;
+                }
+            }
+        }
+        return count;
+    }
+
+    static int optimal(int[] nums , int target)
+    {
+        HashMap < Integer , Integer > mpp = new HashMap<>();
+        mpp.put(0 , 1);  //xor : count
+        int xr = 0;
+        int count = 0;
+        for(int i = 0 ; i < nums.length ; i++)
+        {
+            xr ^= nums[i];
+            int x = xr ^ target;
+
+            if(mpp.containsKey(x))
+            {
+                count += mpp.get(x);
+            }
+
+            mpp.put(xr , mpp.getOrDefault(xr , 0) + 1);
+        }
+        return count;
+    }
+
+
 }

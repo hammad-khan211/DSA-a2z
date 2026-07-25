@@ -93,9 +93,11 @@ class MissingNumber
         {
             nums[i] = sc.nextInt();
         }
-        int result = missingNumberMostOptimal(nums);
+        int result = missingNumberBetter(nums);
         System.out.println("The missing element is : " + result);
         sc.close();
         
     }
+    
+
 }

@@ -68,9 +68,10 @@ class ThreeSum
         int n = nums.length;
         Arrays.sort(nums);
         List < List < Integer > > triplets = new ArrayList<>();
-        for(int i = 0 ; i < n ; i++)
+        for(int i = 0 ; i < n - 2 ; i++)
         {
             if(i > 0 && nums[i]  == nums[i - 1]) continue;
+            if(nums[i] > 0) break;
             int j = i + 1;
             int k = n - 1;
             while(j < k)
@@ -110,7 +111,7 @@ class ThreeSum
         {
             arr[i] = sc.nextInt();
         }
-        List < List < Integer > > answer = find3SumOptimal(arr);
+        List < List < Integer > > answer = find3SumBetter(arr);
         System.out.println("------------------------------------------------------------");
         for(List < Integer > X : answer)
         {

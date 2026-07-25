@@ -50,8 +50,27 @@ class CountSubArraysWithSumK
         }
         System.out.println("Enter the value of K : ");
         int k = sc.nextInt();
-        int result = countSubArraysOptimal(nums, k);
+        int result = brute(nums, k);
         System.out.println("The  number of subarrays with sum " + k + " are : " + result);
         sc.close();
     }
+    static int brute(int[] nums , int K)
+    {
+        int count = 0;
+        for(int i = 0 ; i < nums.length ; i++)
+        {
+            int sum = 0;
+            for(int j = i ; j < nums.length ; j++)
+            {
+                sum += nums[j];
+                if(sum == K)
+                {
+                    count++;
+                }
+            }
+        }
+        return count;
+    }
+
+    
     }

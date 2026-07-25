@@ -63,7 +63,7 @@ class LeftRotationByKplaces
         System.out.println("Enter the number of left rotations you want to perfrom : ");
         int k = sc.nextInt();
        
-        leftRotateOptimal(nums , k);
+        leftRotateBrute(nums , k);
         System.out.println("Array after " + k + " left roations : ");
         for(int x : nums)
         {
@@ -71,5 +71,7 @@ class LeftRotationByKplaces
         }  
         sc.close();      
     }
+
+
 
 }

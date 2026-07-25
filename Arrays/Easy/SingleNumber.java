@@ -104,5 +104,6 @@ class SingleNumber
         }
         sc.close();
     }
+
 }
  

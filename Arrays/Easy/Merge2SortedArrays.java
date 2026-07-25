@@ -60,4 +60,5 @@ class Merge2SortedArrays
             System.out.print(x + " ");
         }
     }
+
 }

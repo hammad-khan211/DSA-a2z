@@ -14,7 +14,7 @@ class BasicHashing{
 
         //PRECOMPUTING 
 
-        int [] hash = new int[13];
+        int [] hash = new int[N + 1];
         for(int i = 0; i < N; i++){
             hash[arr[i]] += 1;
         }

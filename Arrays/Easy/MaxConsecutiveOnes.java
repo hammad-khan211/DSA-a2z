@@ -35,4 +35,6 @@ class MaxConsecutiveOnes
         System.out.println("The maximum consecutive numbber of Ones are : " + result);
         sc.close();
     }
+
+
 }

@@ -17,6 +17,6 @@ class ReversePairs
 
     static int optimal(int[] nums)
     {
-        
+        return 0;
     }
 }

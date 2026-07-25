@@ -33,14 +33,14 @@ class LeftRightRotationByOne
             nums[i] = sc.nextInt();
         }
        
-        leftRotate(nums);
+        leftRotateByone(nums);
         System.out.println("Array after one left roation : ");
         for(int x : nums)
         {
             System.out.print(x + " ");
         }
          System.out.println(" ");
-        rightRotation(nums);
+        rightRotationByone(nums);
         System.out.println("Array after one right roation : ");
         for(int x : nums)
         {
@@ -48,4 +48,28 @@ class LeftRightRotationByOne
         }        
 
     }
+
+    static void leftRotateByone(int[] arr)
+    {
+        int temp = arr[0];
+        for(int i = 1 ; i < arr.length ; i++)
+        {
+            arr[i - 1] = arr[i];
+        }
+        arr[arr.length - 1] = temp;
+    }
+
+    static void rightRotationByone(int[] arr)
+    {
+        int temp = arr[arr.length - 1];
+        for(int i = arr.length - 1 ; i > 0 ; i--)
+        {
+            arr[i] = arr[i - 1];
+        }
+        arr[0] = temp;
+    }
+
+
+
+
 }

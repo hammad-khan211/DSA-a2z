@@ -94,8 +94,89 @@ class LongestConsecutiveSequence
         {
             nums[i] = sc.nextInt();
         }
-        int result = findOptimal(nums);
+        int result = optimal(nums);
         System.out.println("The Longest Consecutive Sequence is of length : " + result);
         sc.close();
+    }
+
+    static int brute(int[] nums)
+    {
+        int N = nums.length;
+        if(N == 0) return 0;
+        int maxCount = 1;
+
+        for(int i = 0 ; i < N ; i++)
+        {
+            int x = nums[i];
+            int count = 1;
+            while(true)
+            {
+                boolean found = false;
+                for(int j = 0 ; j < N ; j++)
+                {
+                    if(nums[j] == x + 1)
+                    {
+                        x = nums[j];
+                        count++;
+                        found = true;
+                        break;
+                    }
+                }
+                if(!found) break;
+            }
+            maxCount = Math.max(maxCount , count);
+        }
+        return maxCount;
+    }
+
+    static int better(int[] nums)
+    {
+        Arrays.sort(nums);
+        int maxCount = 1;
+        int count = 1;
+        for(int i = 1 ; i < nums.length ; i++)
+        {
+            if(nums[i] == nums[i - 1] + 1)
+            {
+                count++;
+            }
+            else if(nums[i] == nums[i - 1])
+            {
+                continue;
+            }
+            else
+            {
+                count = 1;
+            }
+            maxCount = Math.max(maxCount , count);
+        }
+        return maxCount;
+    }
+
+    static int optimal(int[] nums)
+    {
+        int N = nums.length;
+        if(N == 0) return 0;
+        int maxLength = 0;
+        HashSet < Integer > num = new HashSet<>();
+        for(int i = 0 ; i < N ; i++)
+        {
+            num.add(nums[i]);
+        }
+        for(int n : num)
+        {
+            if(!num.contains(n - 1))
+            {
+                int length = 1;
+                int x = n;
+                while(num.contains(x + 1))
+                {
+                    length++;
+                    x++;
+                }
+                maxLength = Math.max(maxLength , length);
+            }
+        }
+        return maxLength;
     }
 }

@@ -31,7 +31,7 @@ class CountDigit
         System.out.print("Enter any number :");
         int num = sc.nextInt();
         CountDigit result = new CountDigit();
-        int digits = result.countdigitlog(num);
+        int digits = result.countdigit(num);
         System.out.println("The number of digits in " + num + " are : " + digits);
         sc.close();
 

@@ -42,4 +42,5 @@ class LeadersofArray //Leader are those elements of array whose all elements on 
         System.out.println("The leaders of arrays are given as : ");
         printLeadersOptimal(arr);
     }
+    
 }

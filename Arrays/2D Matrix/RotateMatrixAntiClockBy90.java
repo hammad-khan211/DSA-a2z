@@ -73,6 +73,6 @@ class RotateMatrixAntiClockBy90
         }
         System.err.println("");
         System.out.println("Matrix after being rotate by 90 Degrees Anti Clockwise : ");
-        rotateOptimal(arr);
+        rotateBrute(arr);
     }
 }

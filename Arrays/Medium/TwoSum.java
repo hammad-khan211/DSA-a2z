@@ -66,18 +66,18 @@
             }
             System.out.println("Enter the target sum : ");
             int t = sc.nextInt();
-            int[] resultBrute = checkTwoSumBrute(nums, t);
-            System.out.println("Indices of elements adding up to " + t + " using brute approach are : ");
-            for(int ans : resultBrute){
-                System.out.print(ans + " ");
-            }
-            System.out.println(" ");
-            // int[] resultOptimal = checkTwoSumOptimal(nums, t);
-            // System.out.println("Indices of elements adding up to " + t + " using optimal approach are : ");
-
-            // for(int ans : resultOptimal){
+            // int[] resultBrute = checkTwoSumBrute(nums, t);
+            // System.out.println("Indices of elements adding up to " + t + " using brute approach are : ");
+            // for(int ans : resultBrute){
             //     System.out.print(ans + " ");
             // }
+            // System.out.println(" ");
+            int[] resultOptimal = optimal(nums, t);
+            System.out.println("Indices of elements adding up to " + t + " using optimal approach are : ");
+
+            for(int ans : resultOptimal){
+                System.out.print(ans + " ");
+            }
 
             // System.out.println(" ");
             // System.out.println(" Elements that are adding up to " + t + " using better approach are : ");
@@ -88,5 +88,6 @@
             // }
             sc.close();
         }
+        
 
-        }
+}

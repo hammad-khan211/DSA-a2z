@@ -15,28 +15,28 @@ class CountInversion
         return count;
     }
 
-    
+
+    static int count = 0;    
     static int optimalCountInversion(int[] arr) //Time COmplexity O(n log n) Space O(1)
     {
-        return MergeSort(arr , 0 , arr.length - 1);
+        count = 0;
+        MergeSort(arr , 0 , arr.length - 1);
+        return count;
     }
 
-    static int MergeSort(int[] nums , int low , int high)
+    static void MergeSort(int[] nums , int low , int high)
     {
-        int countOptimal = 0;
-        if(low == high) return countOptimal;
+        if(low == high) return;
         else
         {
             int mid = (low + high) / 2;
-            countOptimal +=MergeSort(nums , low , mid);
-            countOptimal += MergeSort(nums , mid + 1 , high);
-            countOptimal += Merge(nums , low , mid , high);
-            return countOptimal;
+            MergeSort(nums , low , mid);
+            MergeSort(nums , mid + 1 , high);
+            Merge(nums , low , mid , high);
         }
     }
-    static int Merge(int[] nums , int low , int mid , int high)
+    static void Merge(int[] nums , int low , int mid , int high)
     {
-        int countOptimal = 0;
         int N = ( high - low ) + 1;
         int[] temp = new int[N];
         int left = low;
@@ -51,7 +51,7 @@ class CountInversion
             else
             {
 
-                countOptimal += (mid - left + 1);
+                count += (mid - left + 1);
                 temp[index++] = nums[right++];
             }
         }
@@ -67,7 +67,6 @@ class CountInversion
         {
             nums[low + i] = temp[i];
         }
-        return countOptimal;
     }
 
     public static void main(String args[])
@@ -81,10 +80,7 @@ class CountInversion
         {
             num[i] = sc.nextInt();
         }
-        int[] copy = num.clone();
-        int ansBrute = bruteCountInversion(num);
-        int ansOptimal = optimalCountInversion(copy);
-        System.out.println("Brute , Number of pairs such that i < j and nums[i] > nums[j] are : " + ansBrute);
+        int ansOptimal = optimalCountInversion(num);
         System.out.println("Optimal , Number of pairs such that i < j and nums[i] > nums[j] are : " + ansOptimal);
     }
 }

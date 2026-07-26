@@ -136,6 +136,8 @@ class MergeSortedArraysWithoutExtraSpace
     }
 
 
+
+
     public static void main(String args[])
     {
         Scanner sc = new Scanner(System.in);
@@ -157,4 +159,5 @@ class MergeSortedArraysWithoutExtraSpace
         }
         optimal2Merge(arr1, arr2);
     }
+
 }

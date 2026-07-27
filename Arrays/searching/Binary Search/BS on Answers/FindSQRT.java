@@ -1,7 +1,7 @@
 import java.util.*;
 class FindSQRT
 {
-    static int findSquareRoot(int x)
+    static int findSquareRoot(int x) //tc O(log x)
     {
         if(x == 0) return 0;
         long low = 1;

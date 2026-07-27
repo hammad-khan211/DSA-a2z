@@ -1,7 +1,7 @@
 import java.util.*;
 class SearchInRotatedSortedArray
 {
-    static int search(int[] nums , int target)
+    static int search(int[] nums , int target) //tc O(log n) sc O(1)
     {
         int low = 0;
         int high = nums.length - 1;

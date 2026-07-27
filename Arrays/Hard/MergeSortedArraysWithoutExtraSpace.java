@@ -157,7 +157,7 @@ class MergeSortedArraysWithoutExtraSpace
         {
             arr2[i] = sc.nextInt();
         }
-        optimal2Merge(arr1, arr2);
+        optimal2Merge  (arr1, arr2);
     }
 
 }

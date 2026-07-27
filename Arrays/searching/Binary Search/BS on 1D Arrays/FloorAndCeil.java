@@ -1,7 +1,7 @@
 import java.util.*;
 class FloorAndCeil
 {
-    static int findFloor(int[] nums , int target)
+    static int findFloor(int[] nums , int target) //tc O(log base(2) n) sc O(1)
     {
         int ans = -1;
         int low = 0;

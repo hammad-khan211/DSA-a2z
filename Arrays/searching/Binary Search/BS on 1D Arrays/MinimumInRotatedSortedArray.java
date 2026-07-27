@@ -1,7 +1,7 @@
 import java.util.*;
 class MinimumInRotatedSortedArray
 {
-    static int findMinimum(int[] nums)
+    static int findMinimum(int[] nums) //tc O(logg n) sc O(1)
     {
         int min = Integer.MAX_VALUE;
         int low = 0;

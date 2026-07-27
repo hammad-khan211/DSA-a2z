@@ -43,6 +43,6 @@ class LowerBound
         {
             System.out.println("The lower bound is at index : " + ans);
         }
-        sc.close();
+        sc.close(); 
     }
 }

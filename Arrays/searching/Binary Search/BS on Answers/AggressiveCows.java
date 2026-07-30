@@ -1,7 +1,7 @@
 import java.util.*;
 class AggressiveCows
 {
-    static int findDistance(int[] nums , int cows) //tc O()
+    static int findDistance(int[] nums , int cows) //tc O(n log(n) + n log(max - min))
     {
         Arrays.sort(nums);
         int low = 1;

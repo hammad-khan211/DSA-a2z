@@ -39,6 +39,7 @@ class KthElementOfTwoSortedArrays
             else
             {
                 low = mid1 + 1;
+        
             }
         }
         return -1;

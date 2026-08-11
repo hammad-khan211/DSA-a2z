@@ -2,7 +2,6 @@ import java.util.*;
 
 class Node{
     int data;
-    Node prev;
     Node next;
 
     Node(int data1 , Node next1)
@@ -55,8 +54,22 @@ class ReverseLL
         return newHead;
     }
 
+    static Node reverseRecursion(Node head) //tc O(n) sc O(n)
+    {
+        if(head == null || head.next == null)
+        {
+            return head;
+        }
+        Node newHead = reverseRecursion(head.next);
+        Node front = head.next;
+        front.next = head;
+        head.next = null;
+        return newHead;
+    }
+
     static Node arrayToLL(int[] nums)
     {
+        if(nums.length == 0) return null;
         Node head = new Node(nums[0]);
         Node mover = head;
         for(int i = 1 ; i < nums.length ; i++)
@@ -95,7 +108,7 @@ class ReverseLL
         System.out.println("LL before reverse : ");
         printLL(start);
         System.out.println("LL after reverse : ");
-        start = reverseBetter(start);
+        start = reverseRecursion(start);
         printLL(start);
     }
 }

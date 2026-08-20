@@ -1,0 +1,18 @@
+GENERATE ALL:
+base → add answer
+take
+backtrack
+don't take
+
+GENERATE ONE:
+base → return true/false
+if (take) return true
+backtrack
+if (don't take) return true
+return false
+
+COUNT ALL:
+base → return 1 or 0
+left = take
+right = don't take
+return left + right

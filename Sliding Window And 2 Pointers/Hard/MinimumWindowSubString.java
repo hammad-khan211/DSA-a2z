@@ -1,5 +1,5 @@
 import java.util.*;
-class MinimumWindowSubString
+class MinimumWindowSubString//given two strings s and t , return the minimum contagious part of s such that it contains all the frquencies of all characters of t
 {
     static String brute(String s , String t)
     {

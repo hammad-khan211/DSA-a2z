@@ -16,7 +16,7 @@ public class UniquePaths
 
     } 
     
-    static int recursion(int m , int n)
+    static int recursion(int m , int n) //tc O(2^(m + n)) sc O(m + n) recursive stack
     {
         if(m == 0 && n == 0)
         {
@@ -32,7 +32,7 @@ public class UniquePaths
         return up + left;
     }
 
-    static int memoization(int m , int n , int[][] dp)
+    static int memoization(int m , int n , int[][] dp) //tc O(m * n) sc O(m + n) recursive stack O(m * n) dp array
     {
         if(m == 0 && n == 0)
         {
@@ -53,7 +53,7 @@ public class UniquePaths
         return dp[m][n];
     }
 
-    static int tabulation(int m , int n)
+    static int tabulation(int m , int n) //tc O(m * n) sc O(m + n) dp array
     {
         int[][] dp = new int[m][n];
         dp[0][0] = 1;
@@ -79,7 +79,7 @@ public class UniquePaths
         return dp[m - 1][n - 1];
     }
 
-    static int spaceOptimizedTabulation(int m , int n)
+    static int spaceOptimizedTabulation(int m , int n) //tc O(m * n) sc O(n)
     {
         int[] prev = new int[n];
         for(int i = 0 ; i < m ; i++)

@@ -1,7 +1,7 @@
 import java.util.*;
 class LCS 
 {
-    static int[] findLCS(String s1 , String s2)
+    static int[] findLCS(String s1 , String s2) //longest common subsequence
     {
         int n1 = s1.length();
         int n2 = s2.length();
